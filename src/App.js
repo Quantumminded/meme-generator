@@ -23,11 +23,11 @@ function App() {
   }
 
   const topText = (e) => {
-    setFirstText(e.target.value)
+    setFirstText(e.target.value.toUpperCase())
   }
   
   const bottomText = (e) => {
-    setSecondText(e.target.value)
+    setSecondText(e.target.value.toUpperCase())
   }
 
 
@@ -39,6 +39,7 @@ function App() {
 
 
   return (
+
     <div className="App">
       <h1>The Meme Generator</h1>
       <div className="container-img">
@@ -56,8 +57,10 @@ function App() {
       <input type='text' id='bottom-text-input' name='bottom-text' onChange={bottomText} />
       <br></br>
       <button disabled={currentMeme <= 0} onClick={back}>Prev</button>
-      <button onClick={next}>Next</button>
+      <button disabled={currentMeme >= 99} onClick={next}>Next</button>
       <button onClick={random}>Random</button>
+      <br></br>
+      <input type="file" id="input" accept="image/png, image/jpeg" />
     </div>
   );
 }

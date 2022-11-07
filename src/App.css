@@ -39,28 +39,34 @@
 
 .container-img {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .topright {
+  
   position: absolute;
-  top: 3px;
-  left: 450px;
   font-size: 18px;
 }
 
 .bottomRight {
+  
   position: absolute;
   bottom: 10px;
-  left: 450px;
   font-size: 18px;
 }
 
-p{
-  font-size: 5px;
+.topright {
+  opacity: 9.0;
+}
+
+.topright, .bottomRight {
+  font-size: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: rgb(0, 0, 0);
 }
 
 img { 
-  width: 50%;
+  width: 500px;
   height: auto;
-  opacity: 0.9;
 }
