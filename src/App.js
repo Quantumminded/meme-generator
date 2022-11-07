@@ -1,23 +1,63 @@
-import logo from './logo.svg';
+import fetchData from './API/dataFatch';
+import { useState, useEffect } from 'react'
 import './App.css';
 
 function App() {
+  const [ memeImgs, setMemeImgs ] = useState(false);
+  const [ firstText, setFirstText ] = useState('');
+  const [ secondText, setSecondText ] = useState('');
+  const [ currentMeme, setCurrentMeme ] = useState(false);
+
+  const randomMeme = () => Math.floor(Math.random()* 100);
+
+  const back = () => {
+    setCurrentMeme(prev => prev -1)
+  }
+
+  const next = () => {
+    setCurrentMeme(prev => prev +1)
+  }
+
+  const random = () => {
+    setCurrentMeme(randomMeme)
+  }
+
+  const topText = (e) => {
+    setFirstText(e.target.value)
+  }
+  
+  const bottomText = (e) => {
+    setSecondText(e.target.value)
+  }
+
+
+  useEffect(() => { fetchData(setMemeImgs);
+
+    setCurrentMeme(randomMeme())
+  }, [])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>The Meme Generator</h1>
+      <div className="container-img">
+        <p className="topright">{firstText}</p>
+        <img className="memeImg" src={memeImgs[currentMeme].url} alt='img' />
+        <p className="bottomRight">{secondText}</p>
+      </div>
+      <br></br>
+      <label for='top-text-input'>top-text</label>
+      <br></br>
+      <input type='text' id='top-text-input' name='top-text' onChange={topText} />
+      <br></br>
+      <label for='bottom-text-input'>bottom-text</label>
+      <br></br>
+      <input type='text' id='bottom-text-input' name='bottom-text' onChange={bottomText} />
+      <br></br>
+      <button disabled={currentMeme <= 0} onClick={back}>Prev</button>
+      <button onClick={next}>Next</button>
+      <button onClick={random}>Random</button>
     </div>
   );
 }

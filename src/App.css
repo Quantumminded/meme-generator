@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.container-img {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 3px;
+  left: 450px;
+  font-size: 18px;
+}
+
+.bottomRight {
+  position: absolute;
+  bottom: 10px;
+  left: 450px;
+  font-size: 18px;
+}
+
+p{
+  font-size: 5px;
+}
+
+img { 
+  width: 50%;
+  height: auto;
+  opacity: 0.9;
+}
