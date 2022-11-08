@@ -70,3 +70,18 @@ img {
   width: 500px;
   height: auto;
 }
+
+.fileList{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.toprightNew{
+  position: absolute;
+  font-size: 18px;
+}
+.bottomRightNew{
+  position: absolute;
+  bottom: 10px;
+  font-size: 18px;
+}
